@@ -1,16 +1,12 @@
+apiVersion: build.openshift.io/v1
 kind: BuildConfig
-apiVersion: v1
 metadata:
-  name: demo-sample-build
+  name: demo-bc
+  namespace: demo
 spec:
-  runPolicy: Serial
-  triggers: 
-      type: GitHub
-      github:
-        secret: secret101
   source: 
     git:
-      uri: https://github.com/openshift/ruby-hello-world
+      uri: https://github.com/KimiQianMin/openshift-demo.git
   strategy: 
     sourceStrategy:
       from:

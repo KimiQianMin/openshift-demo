@@ -1,0 +1,19 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: demo-dc
+  namespace: demo
+spec:
+  selector:
+    app: demoApp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demoApp
+    spec:
+      containers:
+        - name: demo-is
+          image: image-registry.openshift-image-registry.svc:5000/demo/demo-is@sha256:1a8b6c8fe0558618d2b2f5b60acc3a5326ff299a809fbd03cd0f7928b6f76cbf
+          ports:
+            - containerPort: 8080

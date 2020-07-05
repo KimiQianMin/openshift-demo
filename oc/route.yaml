@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: demo-route
+  namespace: demo
+spec:
+  host: demo.apps-crc.testing
+  to:
+    kind: Service
+    name: demo-svc
+  port:
+    targetPort: 8080
